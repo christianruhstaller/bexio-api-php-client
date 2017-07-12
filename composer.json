@@ -1,0 +1,20 @@
+{
+    "name": "christianruhstaller/bexio-api-php-client",
+    "description": "Client library for bexio API",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christian Ruhstaller",
+            "email": "christian.ruhstaller@goldinteractive.ch"
+        }
+    ],
+    "require": {
+        "curl/curl": "^1.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bexio\\": "src/Bexio"
+        }
+    }
+}
