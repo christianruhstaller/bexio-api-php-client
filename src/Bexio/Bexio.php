@@ -30,4 +30,9 @@ class Bexio
     {
         return $this->client->get('contact/search/'.$id, []);
     }
+
+    public function getContactsRelations()
+    {
+        return $this->client->get('contact_relation', []);
+    }
 }
