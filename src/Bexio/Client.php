@@ -116,12 +116,17 @@ class Client
         }
 
         $created = 0;
+        $expiresIn = 0;
 
         if (isset($this->accessToken['created'])) {
             $created = $this->accessToken['created'];
         }
 
-        return ($created + ($this->accessToken['expires_in'] - 30)) < time();
+        if (isset($this->accessToken['expires_in'])) {
+            $expiresIn = $this->accessToken['expires_in'];
+        }
+
+        return ($created + ($expiresIn - 30)) < time();
     }
 
     public function getRefreshToken()
