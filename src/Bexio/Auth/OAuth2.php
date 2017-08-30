@@ -117,7 +117,7 @@ class OAuth2
 
     public function generateCredentialsRequest()
     {
-        $uri = $this->getRefreshTokenCredentialUri();
+        $uri = $this->getTokenCredentialUri();
 
         $grantType = $this->getGrantType();
 
@@ -132,6 +132,7 @@ class OAuth2
                 $this->addClientCredentials($params);
                 break;
             case 'refresh_token':
+                $uri = $this->getRefreshTokenCredentialUri();
                 $params['refresh_token'] = $this->getRefreshToken();
                 $this->addClientCredentials($params);
                 break;
@@ -148,6 +149,11 @@ class OAuth2
         return $curl;
     }
 
+    public function getTokenCredentialUri()
+    {
+        return $this->config['tokenCredentialUri'];
+    }
+
     public function getRefreshTokenCredentialUri()
     {
         return $this->config['refreshTokenCredentialUri'];
@@ -162,7 +168,7 @@ class OAuth2
             throw new \Exception('Invalid JSON response');
         }
 
-        if($res['error']) {
+        if(isset($res['error'])) {
             throw new \Exception('OAuth error: '.$res['error'].'. Message: '.$res['error_description']);
         }
 

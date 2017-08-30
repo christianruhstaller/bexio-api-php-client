@@ -9,6 +9,7 @@ class Client
 {
     const API_URL = 'https://office.bexio.com/api2.php';
     const OAUTH2_AUTH_URL = 'https://office.bexio.com/oauth/authorize';
+    const OAUTH2_TOKEN_URI = 'https://office.bexio.com/oauth/access_token';
     const OAUTH2_REFRESH_TOKEN_URI = 'https://office.bexio.com/oauth/refresh_token';
 
     /**
@@ -136,6 +137,14 @@ class Client
         }
     }
 
+    public function fetchAuthCode()
+    {
+        $auth = $this->getOAuth2Service();
+        $auth->setRedirectUri($this->getRedirectUri());
+
+
+    }
+
     public function fetchAccessTokenWithAuthCode($code)
     {
         if (strlen($code) === 0) {
@@ -195,6 +204,7 @@ class Client
                     'clientId'                  => $this->getClientId(),
                     'clientSecret'              => $this->getClientSecret(),
                     'authorizationUri'          => self::OAUTH2_AUTH_URL,
+                    'tokenCredentialUri'        => self::OAUTH2_TOKEN_URI,
                     'refreshTokenCredentialUri' => self::OAUTH2_REFRESH_TOKEN_URI,
                     'redirectUri'               => $this->getRedirectUri(),
                     'issuer'                    => $this->config['clientId'],
