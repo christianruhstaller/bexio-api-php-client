@@ -237,7 +237,7 @@ class Client
     public function post($path, array $parameters = [])
     {
         $request = $this->getRequest();
-        $request->post(self::API_URL.'/'.$this->getOrg().'/'.$path, $parameters);
+        $request->post(self::API_URL.'/'.$this->getOrg().'/'.$path, json_encode($parameters));
 
         return json_decode($request->response);
     }

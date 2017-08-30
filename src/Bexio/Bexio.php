@@ -4,53 +4,11 @@ namespace Bexio;
 
 class Bexio
 {
-    private $client;
+    protected $client;
 
     public function __construct(Client $client)
     {
         $this->client = $client;
-    }
-
-    /**
-     * Gets all the contacts
-     *
-     * @return array
-     */
-    public function getContacts(array $params = [])
-    {
-        return $this->client->get('contact', $params);
-    }
-
-    /**
-     * Search for contacts
-     *
-     * @param array $params
-     * @return mixed
-     */
-    public function searchContacts(array $params = [])
-    {
-        return $this->client->get('contact/search', $params);
-    }
-
-    /**
-     * Get specific contact
-     *
-     * @param $id
-     * @return mixed
-     */
-    public function getContact($id)
-    {
-        return $this->client->get('contact/search/'.$id, []);
-    }
-
-    /**
-     * Get relations from contacts
-     *
-     * @return mixed
-     */
-    public function getContactsRelations()
-    {
-        return $this->client->get('contact_relation', []);
     }
 
     /**
@@ -72,4 +30,5 @@ class Bexio
     {
         return $this->client->get('title', []);
     }
+    
 }
