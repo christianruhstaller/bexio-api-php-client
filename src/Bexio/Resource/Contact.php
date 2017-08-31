@@ -24,7 +24,7 @@ class Contact extends Bexio {
      */
     public function searchContacts(array $params = [])
     {
-        return $this->client->get('contact/search', $params);
+        return $this->client->post('contact/search', $params);
     }
 
     /**
