@@ -21,8 +21,20 @@ class Invoice extends Bexio {
      *
      * @param array $params
      * @return mixed
+     * @deprecated in favor of searchInvoices
      */
     public function searchOrders(array $params = [])
+    {
+       $this->searchInvoices($params);
+    }
+
+    /**
+     * Search for invoices
+     *
+     * @param array $params
+     * @return mixed
+     */
+    public function searchInvoices(array $params = [])
     {
         return $this->client->get('kb_invoice/search', $params);
     }
