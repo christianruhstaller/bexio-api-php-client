@@ -90,7 +90,7 @@ Init client
 Get contacts
 
 ```php
-    $bexio = new Bexio($client);
+    $bexio = new \Bexio\Resource\Contact($client);
     
     $contacts = $bexio->getContacts();
 ```
