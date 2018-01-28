@@ -36,7 +36,7 @@ class Invoice extends Bexio {
      */
     public function searchInvoices(array $params = [])
     {
-        return $this->client->get('kb_invoice/search', $params);
+        return $this->client->post('kb_invoice/search', $params);
     }
 
     /**
