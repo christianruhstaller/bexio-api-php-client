@@ -24,7 +24,7 @@ class Order extends Bexio {
      */
     public function searchOrders(array $params = [])
     {
-        return $this->client->get('kb_order/search', $params);
+        return $this->client->post('kb_order/search', $params);
     }
 
     /**
