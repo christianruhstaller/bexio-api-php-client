@@ -49,4 +49,37 @@ class Order extends Bexio {
         return $this->client->post('kb_order', $params);
     }
 
+    /**
+     * Get repetition
+     *
+     * @param $id
+     * @return mixed
+     */
+    public function getRepetition($id)
+    {
+        return $this->client->get('kb_order/' . $id . '/repetition', []);
+    }
+
+    /**
+     * Create repetition
+     *
+     * @param $id
+     * @param array $params
+     * @return mixed
+     */
+    public function createRepetition($id, $params = [])
+    {
+        return $this->client->post('kb_order/' . $id . '/repetition', $params);
+    }
+
+    /**
+     * Delete repetition
+     *
+     * @param $id
+     * @return mixed
+     */
+    public function deleteRepetition($id)
+    {
+        return $this->client->delete('kb_order/' . $id . '/repetition', []);
+    }
 }
