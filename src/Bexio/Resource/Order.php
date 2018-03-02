@@ -3,8 +3,9 @@
 namespace Bexio\Resource;
 
 use Bexio\Bexio;
+use Bexio\Contract\ItemPosition;
 
-class Order extends Bexio {
+class Order extends Bexio implements ItemPosition {
 
     /**
      * Gets all orders
@@ -81,5 +82,56 @@ class Order extends Bexio {
     public function deleteRepetition($id)
     {
         return $this->client->delete('kb_order/' . $id . '/repetition', []);
+    }
+
+    /**
+     * @param $parentId
+     * @param array $params
+     * @return mixed
+     */
+    public function listItemPositions($parentId, $params = [])
+    {
+        return $this->client->get('kb_order/' . $parentId . '/kb_position_article', $params);
+    }
+
+    /**
+     * @param $parentId
+     * @param $itemId
+     * @return mixed
+     */
+    public function showItemPosition($parentId, $itemId)
+    {
+        return $this->client->get('kb_order/' . $parentId . '/kb_position_article/' . $itemId);
+    }
+
+    /**
+     * @param $parentId
+     * @param array $params
+     * @return mixed
+     */
+    public function createItemPosition($parentId, $params = [])
+    {
+        return $this->client->post('kb_order/' . $parentId . '/kb_position_article', $params);
+    }
+
+    /**
+     * @param $parentId
+     * @param $itemId
+     * @param array $params
+     * @return mixed
+     */
+    public function editItemPosition($parentId, $itemId, $params = [])
+    {
+        return $this->client->post('kb_order/' . $parentId . '/kb_position_article/' . $itemId, $params);
+    }
+
+    /**
+     * @param $parentId
+     * @param $itemId
+     * @return mixed
+     */
+    public function deleteItemPosition($parentId, $itemId)
+    {
+        return $this->client->delete('kb_order/' . $parentId . '/kb_position_article/' . $itemId);
     }
 }
