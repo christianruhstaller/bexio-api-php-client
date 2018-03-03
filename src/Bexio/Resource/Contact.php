@@ -35,7 +35,7 @@ class Contact extends Bexio {
      */
     public function getContact($id)
     {
-        return $this->client->get('contact/search/' . $id, []);
+        return $this->client->get('contact/' . $id, []);
     }
 
     /**
