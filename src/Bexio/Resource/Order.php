@@ -140,6 +140,17 @@ class Order extends Bexio implements ItemPosition {
     /**
      * @param $parentId
      * @param $itemId
+     * @param array $params
+     * @return mixed
+     */
+    public function overwriteItemPosition($parentId, $itemId, $params = [])
+    {
+        return $this->client->put('kb_order/' . $parentId . '/kb_position_article/' . $itemId, $params);
+    }
+
+    /**
+     * @param $parentId
+     * @param $itemId
      * @return mixed
      */
     public function deleteItemPosition($parentId, $itemId)
