@@ -51,6 +51,18 @@ class Order extends Bexio implements ItemPosition {
     }
 
     /**
+     * Edit order
+     *
+     * @param $id
+     * @param array $params
+     * @return mixed
+     */
+    public function editOrder($id, array $params = [])
+    {
+        return $this->client->post('kb_order/'. $id, $params);
+    }
+
+    /**
      * Get repetition
      *
      * @param $id
