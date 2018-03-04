@@ -21,18 +21,6 @@ class Invoice extends Bexio {
      *
      * @param array $params
      * @return mixed
-     * @deprecated in favor of searchInvoices
-     */
-    public function searchOrders(array $params = [])
-    {
-       $this->searchInvoices($params);
-    }
-
-    /**
-     * Search for invoices
-     *
-     * @param array $params
-     * @return mixed
      */
     public function searchInvoices(array $params = [])
     {
@@ -61,4 +49,26 @@ class Invoice extends Bexio {
         return $this->client->post('kb_invoice', $params);
     }
 
+    /**
+     * Edit invoice
+     *
+     * @param $id
+     * @param array $params
+     * @return mixed
+     */
+    public function editInvoice($id, $params = [])
+    {
+        return $this->client->post('kb_invoice/'.$id, $params);
+    }
+
+    /**
+     * Delete invoice
+     *
+     * @param $id
+     * @return mixed
+     */
+    public function deleteInvoice($id)
+    {
+        return $this->client->delete('kb_invoice/' . $id);
+    }
 }

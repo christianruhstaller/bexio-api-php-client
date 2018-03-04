@@ -63,6 +63,17 @@ class Order extends Bexio implements ItemPosition {
     }
 
     /**
+     * Delete order
+     *
+     * @param $id
+     * @return mixed
+     */
+    public function deleteOrder($id)
+    {
+        return $this->client->delete('kb_order/' . $id);
+    }
+
+    /**
      * Get repetition
      *
      * @param $id
