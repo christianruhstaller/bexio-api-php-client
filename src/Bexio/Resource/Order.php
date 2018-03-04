@@ -70,7 +70,7 @@ class Order extends Bexio implements ItemPosition {
      */
     public function deleteOrder($id)
     {
-        return $this->client->delete('kb_order/' . $id);
+        return $this->client->delete('kb_order/' . $id, []);
     }
 
     /**
