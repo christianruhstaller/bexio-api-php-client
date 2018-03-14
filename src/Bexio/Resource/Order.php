@@ -188,6 +188,16 @@ class Order extends Bexio implements ItemPosition {
     }
 
     /**
+     * @param $id
+     * @param array $params
+     * @return mixed
+     */
+    public function createInvoiceWithAllOpenPositions($id)
+    {
+        return $this->client->postWithoutPayload('kb_order/' . $id . '/invoice');
+    }
+
+    /**
      * Get specific order PDF
      *
      * @param $id
