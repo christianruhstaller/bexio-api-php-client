@@ -242,6 +242,14 @@ class Client
         return json_decode($request->response);
     }
 
+    public function postWithoutPayload($path)
+    {
+        $request = $this->getRequest();
+        $request->post(self::API_URL.'/'.$this->getOrg().'/'.$path);
+
+        return json_decode($request->response);
+    }
+
     public function put($path, array $parameters = [])
     {
         $request = $this->getRequest();

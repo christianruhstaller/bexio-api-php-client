@@ -5,11 +5,18 @@ namespace Bexio\Resource;
 use Bexio\Bexio;
 use Bexio\Contract\ItemPosition;
 
+/**
+ * Class Order
+ * @package Bexio\Resource
+ * https://docs.bexio.com/ressources/kb_order/
+ */
 class Order extends Bexio implements ItemPosition {
 
     /**
      * Gets all orders
+     * https://docs.bexio.com/ressources/kb_order/#list-orders
      *
+     * @param array $params
      * @return array
      */
     public function getOrders(array $params = [])
@@ -19,6 +26,7 @@ class Order extends Bexio implements ItemPosition {
 
     /**
      * Search for orders
+     * https://docs.bexio.com/ressources/kb_order/#search-orders
      *
      * @param array $params
      * @return mixed
@@ -167,5 +175,72 @@ class Order extends Bexio implements ItemPosition {
     public function deleteItemPosition($parentId, $itemId)
     {
         return $this->client->delete('kb_order/' . $parentId . '/kb_position_article/' . $itemId);
+    }
+
+    /**
+     * @param $id
+     * @param array $params
+     * @return mixed
+     */
+    public function createInvoice($id, $params = [])
+    {
+        return $this->client->post('kb_order/' . $id . '/invoice', $params);
+    }
+
+    /**
+     * @param $id
+     * @param array $params
+     * @return mixed
+     */
+    public function createInvoiceWithAllOpenPositions($id)
+    {
+        return $this->client->postWithoutPayload('kb_order/' . $id . '/invoice');
+    }
+
+    /**
+     * Get specific order PDF
+     *
+     * @param $id
+     * @return mixed
+     */
+    public function getPdf($id)
+    {
+        return $this->client->get('kb_order/' . $id . '/pdf');
+    }
+
+    /**
+     * Get comments
+     *
+     * @param $id
+     * @return mixed
+     */
+    public function getComments($id)
+    {
+        return $this->client->get('kb_order/' . $id . '/comment');
+    }
+
+    /**
+     * Get specific comment
+     *
+     * @param $id
+     * @param $commentId
+     * @return mixed
+     */
+    public function getComment($id, $commentId)
+    {
+        return $this->client->get('kb_order/' . $id . '/comment/' . $commentId);
+    }
+
+    /**
+     * Create comment
+     * https://docs.bexio.com/ressources/kb_order/#create-comment
+     *
+     * @param $id
+     * @param array $params
+     * @return mixed
+     */
+    public function createComment($id, $params = [])
+    {
+        return $this->client->post('kb_order/' . $id . '/comment', $params);
     }
 }

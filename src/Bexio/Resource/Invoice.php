@@ -4,6 +4,11 @@ namespace Bexio\Resource;
 
 use Bexio\Bexio;
 
+/**
+ * Class Invoice
+ * @package Bexio\Resource
+ * https://docs.bexio.com/ressources/kb_invoice/
+ */
 class Invoice extends Bexio {
 
     /**
@@ -44,7 +49,7 @@ class Invoice extends Bexio {
      * @param $id
      * @return mixed
      */
-    public function getInvoicePDF($id)
+    public function getPdf($id)
     {
         return $this->client->get('kb_invoice/' . $id . '/pdf', []);
     }
@@ -114,6 +119,42 @@ class Invoice extends Bexio {
     public function markInvoiceAsSent($id)
     {
         return $this->client->post('kb_invoice/' . $id . '/mark_as_sent', []);
+    }
+
+
+    /**
+     * Get comments
+     *
+     * @param $id
+     * @return mixed
+     */
+    public function getComments($id)
+    {
+        return $this->client->get('kb_invoice/' . $id . '/comment');
+    }
+
+    /**
+     * Get specific comment
+     *
+     * @param $id
+     * @param $commentId
+     * @return mixed
+     */
+    public function getComment($id, $commentId)
+    {
+        return $this->client->get('kb_invoice/' . $id . '/comment/' . $commentId);
+    }
+
+    /**
+     * Create comment
+     *
+     * @param $id
+     * @param array $params
+     * @return mixed
+     */
+    public function createComment($id, $params = [])
+    {
+        return $this->client->post('kb_invoice/' . $id . '/comment', $params);
     }
 
     /**
