@@ -64,11 +64,12 @@ class Contact extends Bexio {
     /**
      * Get relations from contacts
      *
+     * @param array $params
      * @return mixed
      */
-    public function getContactsRelations()
+    public function getContactsRelations(array $params = [])
     {
-        return $this->client->get('contact_relation', []);
+        return $this->client->get('contact_relation', $params);
     }
 
     /**
