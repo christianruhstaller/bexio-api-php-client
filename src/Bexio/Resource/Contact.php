@@ -9,6 +9,7 @@ class Contact extends Bexio {
     /**
      * Gets all the contacts
      *
+     * @param array $params
      * @return array
      */
     public function getContacts(array $params = [])
