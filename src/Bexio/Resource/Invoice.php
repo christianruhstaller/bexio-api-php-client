@@ -6,10 +6,12 @@ use Bexio\Bexio;
 
 /**
  * Class Invoice
+ *
  * @package Bexio\Resource
  * https://docs.bexio.com/ressources/kb_invoice/
  */
-class Invoice extends Bexio {
+class Invoice extends Bexio
+{
 
     /**
      * Gets all orders
@@ -40,7 +42,7 @@ class Invoice extends Bexio {
      */
     public function getInvoice($id)
     {
-        return $this->client->get('kb_invoice/' . $id, []);
+        return $this->client->get('kb_invoice/'.$id, []);
     }
 
     /**
@@ -51,12 +53,12 @@ class Invoice extends Bexio {
      */
     public function getPdf($id)
     {
-        return $this->client->get('kb_invoice/' . $id . '/pdf', []);
+        return $this->client->get('kb_invoice/'.$id.'/pdf', []);
     }
 
     /**
      * Add new invoice
-     * 
+     *
      * @param array $params
      * @return mixed
      */
@@ -68,7 +70,7 @@ class Invoice extends Bexio {
     /**
      * Edit invoice
      *
-     * @param $id
+     * @param       $id
      * @param array $params
      * @return mixed
      */
@@ -85,7 +87,7 @@ class Invoice extends Bexio {
      */
     public function deleteInvoice($id)
     {
-        return $this->client->delete('kb_invoice/' . $id, []);
+        return $this->client->delete('kb_invoice/'.$id, []);
     }
 
     /**
@@ -96,7 +98,7 @@ class Invoice extends Bexio {
      */
     public function issueInvoice($id)
     {
-        return $this->client->post('kb_invoice/' . $id . '/issue', []);
+        return $this->client->post('kb_invoice/'.$id.'/issue', []);
     }
 
     /**
@@ -107,18 +109,19 @@ class Invoice extends Bexio {
      */
     public function sendInvoice($id)
     {
-        return $this->client->post('kb_invoice/' . $id . '/send', []);
+        return $this->client->post('kb_invoice/'.$id.'/send', []);
     }
 
     /**
      * Mark specific invoice as sent
+     *s
      *
      * @param $id
      * @return mixed
      */
     public function markInvoiceAsSent($id)
     {
-        return $this->client->post('kb_invoice/' . $id . '/mark_as_sent', []);
+        return $this->client->post('kb_invoice/'.$id.'/mark_as_sent', []);
     }
 
 
@@ -130,7 +133,7 @@ class Invoice extends Bexio {
      */
     public function getComments($id)
     {
-        return $this->client->get('kb_invoice/' . $id . '/comment');
+        return $this->client->get('kb_invoice/'.$id.'/comment');
     }
 
     /**
@@ -142,19 +145,19 @@ class Invoice extends Bexio {
      */
     public function getComment($id, $commentId)
     {
-        return $this->client->get('kb_invoice/' . $id . '/comment/' . $commentId);
+        return $this->client->get('kb_invoice/'.$id.'/comment/'.$commentId);
     }
 
     /**
      * Create comment
      *
-     * @param $id
+     * @param       $id
      * @param array $params
      * @return mixed
      */
     public function createComment($id, $params = [])
     {
-        return $this->client->post('kb_invoice/' . $id . '/comment', $params);
+        return $this->client->post('kb_invoice/'.$id.'/comment', $params);
     }
 
     /**
@@ -165,7 +168,7 @@ class Invoice extends Bexio {
      */
     public function getInvoicePayments($id)
     {
-        return $this->client->get('kb_invoice/' . $id . '/payment', []);
+        return $this->client->get('kb_invoice/'.$id.'/payment', []);
     }
 
     /**
@@ -177,6 +180,29 @@ class Invoice extends Bexio {
      */
     public function getInvoicePayment($id, $paymentId)
     {
-        return $this->client->get('kb_invoice/' . $id . '/payment/' . $paymentId, []);
+        return $this->client->get('kb_invoice/'.$id.'/payment/'.$paymentId, []);
+    }
+
+    /**
+     * Create a new invoice payment
+     *
+     * @param array $params
+     * @return mixed
+     */
+    public function createInvoicePayment($id, $params = [])
+    {
+        return $this->client->post('kb_invoice/'.$id.'/payment', $params);
+    }
+
+    /**
+     * Celete a invoice payment
+     *
+     * @param $id
+     * @param $paymentId
+     * @return mixed
+     */
+    public function deleteInvoicePayment($id, $paymentId)
+    {
+        return $this->client->delete('kb_invoice/'.$id.'/payment/'.$paymentId, []);
     }
 }
