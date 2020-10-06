@@ -7,7 +7,8 @@ use Curl\Curl;
 
 class Client
 {
-    const API_URL = 'https://office.bexio.com/api2.php';
+    const API_URL = 'https://api.bexio.com';
+
     const OAUTH2_AUTH_URL = 'https://office.bexio.com/oauth/authorize';
     const OAUTH2_TOKEN_URI = 'https://office.bexio.com/oauth/access_token';
     const OAUTH2_REFRESH_TOKEN_URI = 'https://office.bexio.com/oauth/refresh_token';
@@ -27,6 +28,8 @@ class Client
      */
     private $auth;
 
+    private $jsonDecodeAssoc = false;
+    
     /**
      * Client constructor.
      *
@@ -74,6 +77,7 @@ class Client
         return $this->config['redirectUri'];
     }
 
+    /** @deprecated Is no longer used in API v2.0 */
     public function getOrg()
     {
         return $this->accessToken['org'];
@@ -226,43 +230,49 @@ class Client
         return $curl;
     }
 
-    public function get($path, array $parameters = [])
+    public function get($path, array $parameters = [], string $version = '2.0')
     {
         $request = $this->getRequest();
-        $request->get(self::API_URL.'/'.$this->getOrg().'/'.$path, $parameters);
+        $request->get(self::API_URL.'/'. $version . '/' . $path, $parameters);
 
-        return json_decode($request->response);
+        return json_decode($request->response, $this->jsonDecodeAssoc);
     }
 
-    public function post($path, array $parameters = [])
+    public function post($path, array $parameters = [], string $version = '2.0')
     {
         $request = $this->getRequest();
-        $request->post(self::API_URL.'/'.$this->getOrg().'/'.$path, json_encode($parameters));
+        $request->post(self::API_URL.'/'. $version . '/' . $path, json_encode($parameters));
 
-        return json_decode($request->response);
+        return json_decode($request->response, $this->jsonDecodeAssoc);
     }
 
-    public function postWithoutPayload($path)
+    public function postWithoutPayload($path, string $version = '2.0')
     {
         $request = $this->getRequest();
-        $request->post(self::API_URL.'/'.$this->getOrg().'/'.$path);
+        $request->post(self::API_URL.'/'. $version . '/' . $path);
 
-        return json_decode($request->response);
+        return json_decode($request->response, $this->jsonDecodeAssoc);
     }
 
-    public function put($path, array $parameters = [])
+    public function put($path, array $parameters = [], string $version = '2.0')
     {
         $request = $this->getRequest();
-        $request->put(self::API_URL.'/'.$this->getOrg().'/'.$path, $parameters);
+        $request->put(self::API_URL.'/'. $version . '/' . $path, $parameters);
 
-        return json_decode($request->response);
+        return json_decode($request->response, $this->jsonDecodeAssoc);
     }
 
-    public function delete($path, array $parameters = [])
+    public function delete($path, array $parameters = [], string $version = '2.0')
     {
         $request = $this->getRequest();
-        $request->delete(self::API_URL.'/'.$this->getOrg().'/'.$path, $parameters);
+        $request->delete(self::API_URL.'/'. $version . '/' . $path, $parameters);
 
-        return json_decode($request->response);
+        return json_decode($request->response, $this->jsonDecodeAssoc);
     }
+
+	public function setjsonDecodeAssoc(bool $jsonDecodeAssoc): self
+	{
+		$this->jsonDecodeAssoc = $jsonDecodeAssoc;
+		return $this;
+	}
 }
