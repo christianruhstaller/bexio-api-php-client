@@ -7,10 +7,10 @@ use Curl\Curl;
 
 class Client
 {
-    const API_URL = 'https://office.bexio.com/api2.php';
-    const OAUTH2_AUTH_URL = 'https://office.bexio.com/oauth/authorize';
-    const OAUTH2_TOKEN_URI = 'https://office.bexio.com/oauth/access_token';
-    const OAUTH2_REFRESH_TOKEN_URI = 'https://office.bexio.com/oauth/refresh_token';
+    const API_URL = 'https://api.bexio.com/3.0';
+    const OAUTH2_AUTH_URL = 'https://idp.bexio.com/authorize';
+    const OAUTH2_TOKEN_URI = 'https://idp.bexio.com/token';
+    const OAUTH2_REFRESH_TOKEN_URI = 'https://idp.bexio.com/token';
 
     /**
      * @var array $config
@@ -72,11 +72,6 @@ class Client
     public function getRedirectUri()
     {
         return $this->config['redirectUri'];
-    }
-
-    public function getOrg()
-    {
-        return $this->accessToken['org'];
     }
 
     /**
@@ -229,7 +224,7 @@ class Client
     public function get($path, array $parameters = [])
     {
         $request = $this->getRequest();
-        $request->get(self::API_URL.'/'.$this->getOrg().'/'.$path, $parameters);
+        $request->get(self::API_URL.'/'.$path, $parameters);
 
         return json_decode($request->response);
     }
@@ -237,7 +232,7 @@ class Client
     public function post($path, array $parameters = [])
     {
         $request = $this->getRequest();
-        $request->post(self::API_URL.'/'.$this->getOrg().'/'.$path, json_encode($parameters));
+        $request->post(self::API_URL.'/'.$path, json_encode($parameters));
 
         return json_decode($request->response);
     }
@@ -245,7 +240,7 @@ class Client
     public function postWithoutPayload($path)
     {
         $request = $this->getRequest();
-        $request->post(self::API_URL.'/'.$this->getOrg().'/'.$path);
+        $request->post(self::API_URL.'/'.$path);
 
         return json_decode($request->response);
     }
@@ -253,7 +248,7 @@ class Client
     public function put($path, array $parameters = [])
     {
         $request = $this->getRequest();
-        $request->put(self::API_URL.'/'.$this->getOrg().'/'.$path, $parameters);
+        $request->put(self::API_URL.'/'.$path, $parameters);
 
         return json_decode($request->response);
     }
@@ -261,7 +256,7 @@ class Client
     public function delete($path, array $parameters = [])
     {
         $request = $this->getRequest();
-        $request->delete(self::API_URL.'/'.$this->getOrg().'/'.$path, $parameters);
+        $request->delete(self::API_URL.'/'.$path, $parameters);
 
         return json_decode($request->response);
     }
