@@ -139,6 +139,8 @@ class Client
         if (isset($this->accessToken['refresh_token'])) {
             return $this->accessToken['refresh_token'];
         }
+
+        return null;
     }
 
     public function fetchAuthCode()
@@ -233,7 +235,12 @@ class Client
     public function get($path, array $parameters = [], string $version = '2.0')
     {
         $request = $this->getRequest();
-        $request->get(self::API_URL.'/'. $version . '/' . $path, $parameters);
+        $url = self::API_URL . '/' . $version . '/' . $path;
+        $request->get($url, $parameters);
+
+        if ($request->isError()) {
+            throw new \Exception(sprintf('Error on HTTP request to %s: %s', $url, $request->response));
+        }
 
         return json_decode($request->response, $this->jsonDecodeAssoc);
     }
@@ -241,7 +248,12 @@ class Client
     public function post($path, array $parameters = [], string $version = '2.0')
     {
         $request = $this->getRequest();
-        $request->post(self::API_URL.'/'. $version . '/' . $path, json_encode($parameters));
+        $url = self::API_URL . '/' . $version . '/' . $path;
+        $request->post($url, json_encode($parameters));
+
+        if ($request->isError()) {
+            throw new \Exception(sprintf('Error on HTTP request to %s: %s', $url, $request->response));
+        }
 
         return json_decode($request->response, $this->jsonDecodeAssoc);
     }
@@ -249,7 +261,12 @@ class Client
     public function postWithoutPayload($path, string $version = '2.0')
     {
         $request = $this->getRequest();
-        $request->post(self::API_URL.'/'. $version . '/' . $path);
+        $url = self::API_URL . '/' . $version . '/' . $path;
+        $request->post($url);
+
+        if ($request->isError()) {
+            throw new \Exception(sprintf('Error on HTTP request to %s: %s', $url, $request->response));
+        }
 
         return json_decode($request->response, $this->jsonDecodeAssoc);
     }
@@ -257,7 +274,12 @@ class Client
     public function put($path, array $parameters = [], string $version = '2.0')
     {
         $request = $this->getRequest();
-        $request->put(self::API_URL.'/'. $version . '/' . $path, $parameters);
+        $url = self::API_URL . '/' . $version . '/' . $path;
+        $request->put($url, $parameters);
+
+        if ($request->isError()) {
+            throw new \Exception(sprintf('Error on HTTP request to %s: %s', $url, $request->response));
+        }
 
         return json_decode($request->response, $this->jsonDecodeAssoc);
     }
@@ -265,7 +287,12 @@ class Client
     public function delete($path, array $parameters = [], string $version = '2.0')
     {
         $request = $this->getRequest();
-        $request->delete(self::API_URL.'/'. $version . '/' . $path, $parameters);
+        $url = self::API_URL . '/' . $version . '/' . $path;
+        $request->delete($url, $parameters);
+
+        if ($request->isError()) {
+            throw new \Exception(sprintf('Error on HTTP request to %s: %s', $url, $request->response));
+        }
 
         return json_decode($request->response, $this->jsonDecodeAssoc);
     }
