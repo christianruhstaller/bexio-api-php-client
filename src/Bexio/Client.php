@@ -7,7 +7,7 @@ use Curl\Curl;
 
 class Client
 {
-    const API_URL = 'https://api.bexio.com/3.0';
+    const API_URL = 'https://api.bexio.com/2.0';
     const OAUTH2_AUTH_URL = 'https://idp.bexio.com/authorize';
     const OAUTH2_TOKEN_URI = 'https://idp.bexio.com/token';
     const OAUTH2_REFRESH_TOKEN_URI = 'https://idp.bexio.com/token';
