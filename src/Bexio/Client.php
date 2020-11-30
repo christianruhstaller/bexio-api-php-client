@@ -29,7 +29,10 @@ class Client
     private $auth;
 
     private $jsonDecodeAssoc = false;
-    
+
+    private $requestCallbacks = [];
+    private $responseCallbacks = [];
+
     /**
      * Client constructor.
      *
@@ -236,7 +239,10 @@ class Client
     {
         $request = $this->getRequest();
         $url = self::API_URL . '/' . $version . '/' . $path;
+
+        $this->logRequest($url, $parameters);
         $request->get($url, $parameters);
+        $this->logResponse($url, $request->response);
 
         if ($request->isError()) {
             throw new \Exception(sprintf('Error on HTTP request to %s: %s', $url, $request->response));
@@ -249,7 +255,10 @@ class Client
     {
         $request = $this->getRequest();
         $url = self::API_URL . '/' . $version . '/' . $path;
+
+        $this->logRequest($url, $parameters);
         $request->post($url, json_encode($parameters));
+        $this->logResponse($url, $request->response);
 
         if ($request->isError()) {
             throw new \Exception(sprintf('Error on HTTP request to %s: %s', $url, $request->response));
@@ -262,7 +271,10 @@ class Client
     {
         $request = $this->getRequest();
         $url = self::API_URL . '/' . $version . '/' . $path;
+
+        $this->logRequest($url);
         $request->post($url);
+        $this->logResponse($url, $request->response);
 
         if ($request->isError()) {
             throw new \Exception(sprintf('Error on HTTP request to %s: %s', $url, $request->response));
@@ -275,7 +287,10 @@ class Client
     {
         $request = $this->getRequest();
         $url = self::API_URL . '/' . $version . '/' . $path;
+
+        $this->logRequest($url, $parameters);
         $request->put($url, $parameters);
+        $this->logResponse($url, $request->response);
 
         if ($request->isError()) {
             throw new \Exception(sprintf('Error on HTTP request to %s: %s', $url, $request->response));
@@ -288,7 +303,10 @@ class Client
     {
         $request = $this->getRequest();
         $url = self::API_URL . '/' . $version . '/' . $path;
+
+        $this->logRequest($url, $parameters);
         $request->delete($url, $parameters);
+        $this->logResponse($url, $request->response);
 
         if ($request->isError()) {
             throw new \Exception(sprintf('Error on HTTP request to %s: %s', $url, $request->response));
@@ -297,9 +315,33 @@ class Client
         return json_decode($request->response, $this->jsonDecodeAssoc);
     }
 
-	public function setjsonDecodeAssoc(bool $jsonDecodeAssoc): self
-	{
-		$this->jsonDecodeAssoc = $jsonDecodeAssoc;
-		return $this;
-	}
+    public function setjsonDecodeAssoc(bool $jsonDecodeAssoc): self
+    {
+        $this->jsonDecodeAssoc = $jsonDecodeAssoc;
+        return $this;
+    }
+
+    public function onRequest(\Closure $callback)
+    {
+        $this->requestCallbacks[] = $callback;
+    }
+
+    public function onResponse(\Closure $callback)
+    {
+        $this->responseCallbacks[] = $callback;
+    }
+
+    private function logRequest(string $requestUrl, array $parameters = [])
+    {
+        foreach ($this->requestCallbacks as $callback) {
+            $callback($requestUrl, $parameters);
+        }
+    }
+
+    private function logResponse(string $requestUrl, string $response)
+    {
+        foreach ($this->responseCallbacks as $callback) {
+            $callback($requestUrl, $response);
+        }
+    }
 }
