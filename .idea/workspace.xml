@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="58af1aed-3dac-4b9f-86ea-9a93fe119de5" name="Default Changelist" comment="Added exceptions on error">
+      <change afterPath="$PROJECT_DIR$/.idea/bexio-api-php-client.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bexio/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bexio/Client.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/curl/curl" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1iJjZYTElurewRdRWixHYjVAXU4" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Bexio/Resource" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Bexio/Resource" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="58af1aed-3dac-4b9f-86ea-9a93fe119de5" name="Default Changelist" comment="" />
+      <created>1601632645332</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1601632645332</updated>
+      <workItem from="1601632646992" duration="7221000" />
+      <workItem from="1601972586274" duration="907000" />
+      <workItem from="1604044157175" duration="1029000" />
+      <workItem from="1606731099948" duration="1124000" />
+    </task>
+    <task id="LOCAL-00001" summary="Fixed for new API version(s), added option setjsonDecodeAssoc() for returning arrays instead of stdClass, additional methods for getting languages and taxes">
+      <created>1601972789590</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1601972789590</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added classes for addtional addresses, contact groups and countries">
+      <created>1601972805493</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1601972805493</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added exceptions on error">
+      <created>1604044471177</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1604044471177</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fixed for new API version(s), added option setjsonDecodeAssoc() for returning arrays instead of stdClass, additional methods for getting languages and taxes" />
+    <MESSAGE value="Added classes for addtional addresses, contact groups and countries" />
+    <MESSAGE value="Added exceptions on error" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added exceptions on error" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="158" y="134" width="1662" height="846" key="DiffContextDialog" timestamp="1601905319945">
+      <screen x="58" y="34" width="1862" height="1046" />
+    </state>
+    <state x="158" y="134" width="1662" height="846" key="DiffContextDialog/58.34.1862.1046/1920.0.1920.1080@58.34.1862.1046" timestamp="1601905319945" />
+    <state x="730" y="207" width="507" height="698" key="RollbackChangesDialog" timestamp="1601972691804">
+      <screen x="58" y="34" width="1862" height="1046" />
+    </state>
+    <state x="730" y="207" width="507" height="698" key="RollbackChangesDialog/58.34.1862.1046@58.34.1862.1046" timestamp="1601972691804" />
+    <state x="470" y="192" key="SettingsEditor" timestamp="1601905318747">
+      <screen x="58" y="34" width="1862" height="1046" />
+    </state>
+    <state x="470" y="192" key="SettingsEditor/58.34.1862.1046/1920.0.1920.1080@58.34.1862.1046" timestamp="1601905318747" />
+    <state x="1134" y="558" width="1000" height="654" key="Vcs.Push.Dialog.v2" timestamp="1604044560700">
+      <screen x="69" y="34" width="3771" height="2126" />
+    </state>
+    <state x="584" y="292" width="800" height="527" key="Vcs.Push.Dialog.v2/58.34.1862.1046@58.34.1862.1046" timestamp="1601972808234" />
+    <state x="1134" y="558" width="1000" height="654" key="Vcs.Push.Dialog.v2/69.34.3771.2126@69.34.3771.2126" timestamp="1604044560700" />
+  </component>
+</project>
