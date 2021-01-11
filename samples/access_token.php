@@ -28,6 +28,9 @@ $client->onResponse(function (string $requestUrl, string $response) {
 $bexio = new Bexio($client);
 var_dump($bexio->getLanguages());
 
+// Fetch tags
+var_dump($bexio->getTaxes());
+
 // Create title
 $titleClient = new \Bexio\Resource\Title($client);
 $title = $titleClient->createTitle([ 'name' => 'XXX TEST XXX' ]);

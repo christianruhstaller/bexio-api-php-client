@@ -19,11 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58af1aed-3dac-4b9f-86ea-9a93fe119de5" name="Default Changelist" comment="Pull + merge new commits">
-      <change afterPath="$PROJECT_DIR$/src/Bexio/Resource/Title.php" afterDir="false" />
+    <list default="true" id="58af1aed-3dac-4b9f-86ea-9a93fe119de5" name="Default Changelist" comment="Added class for titles API">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/samples/access_token.php" beforeDir="false" afterPath="$PROJECT_DIR$/samples/access_token.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bexio/Bexio.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bexio/Bexio.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bexio/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bexio/Client.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +47,14 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/composer" />
@@ -64,6 +72,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Bexio/Resource" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -93,7 +102,8 @@
       <workItem from="1601972586274" duration="907000" />
       <workItem from="1604044157175" duration="1029000" />
       <workItem from="1606731099948" duration="2367000" />
-      <workItem from="1610354987516" duration="3664000" />
+      <workItem from="1610354987516" duration="4983000" />
+      <workItem from="1610369310131" duration="364000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed for new API version(s), added option setjsonDecodeAssoc() for returning arrays instead of stdClass, additional methods for getting languages and taxes">
       <created>1601972789590</created>
@@ -144,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610357896947</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added class for titles API">
+      <created>1610358781567</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1610358781567</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,7 +178,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="base/master" />
+                        <option value="origin/master" />
                       </list>
                     </value>
                   </entry>
@@ -184,6 +201,7 @@
     <MESSAGE value="Merge changes from base repository" />
     <MESSAGE value="Merge changes from base repository + test script with access token" />
     <MESSAGE value="Pull + merge new commits" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pull + merge new commits" />
+    <MESSAGE value="Added class for titles API" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added class for titles API" />
   </component>
 </project>

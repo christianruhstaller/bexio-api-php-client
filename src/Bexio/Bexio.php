@@ -49,6 +49,6 @@ class Bexio
 	 */
 	public function getTaxes(array $requestParams = [])
 	{
-		return $this->client->get('taxes', $requestParams);
+		return $this->client->get('taxes', $requestParams, '3.0');
 	}
 }
