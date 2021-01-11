@@ -7,11 +7,10 @@ use Curl\Curl;
 
 class Client
 {
-    const API_URL = 'https://api.bexio.com';
-
-    const OAUTH2_AUTH_URL = 'https://office.bexio.com/oauth/authorize';
-    const OAUTH2_TOKEN_URI = 'https://office.bexio.com/oauth/access_token';
-    const OAUTH2_REFRESH_TOKEN_URI = 'https://office.bexio.com/oauth/refresh_token';
+    const API_URL = 'https://api.bexio.com/2.0';
+    const OAUTH2_AUTH_URL = 'https://idp.bexio.com/authorize';
+    const OAUTH2_TOKEN_URI = 'https://idp.bexio.com/token';
+    const OAUTH2_REFRESH_TOKEN_URI = 'https://idp.bexio.com/token';
 
     /**
      * @var array $config
@@ -78,12 +77,6 @@ class Client
     public function getRedirectUri()
     {
         return $this->config['redirectUri'];
-    }
-
-    /** @deprecated Is no longer used in API v2.0 */
-    public function getOrg()
-    {
-        return $this->accessToken['org'];
     }
 
     /**
@@ -235,13 +228,48 @@ class Client
         return $curl;
     }
 
-    public function get($path, array $parameters = [], string $version = '2.0')
+    public function get($path, array $parameters = [])
+    {
+        return $this->call($path, $parameters, function ($request, $url, $parameters) {
+            $request->get($url, $parameters);
+        });
+    }
+
+    public function post($path, array $parameters = [])
+    {
+        return $this->call($path, $parameters, function ($request, $url, $parameters) {
+            $request->post($url, json_encode($parameters));
+        });
+    }
+
+    public function postWithoutPayload($path)
+    {
+        return $this->call($path, [], function ($request, $url, $parameters) {
+            $request->post($url);
+        });
+    }
+
+    public function put($path, array $parameters = [])
+    {
+        return $this->call($path, $parameters, function ($request, $url, $parameters) {
+            $request->put($url, $parameters);
+        });
+    }
+
+    public function delete($path, array $parameters = [])
+    {
+        return $this->call($path, $parameters, function ($request, $url, $parameters) {
+            $request->delete($url, $parameters);
+        });
+    }
+
+    private function call($path, array $parameters = [], \Closure $callback)
     {
         $request = $this->getRequest();
-        $url = self::API_URL . '/' . $version . '/' . $path;
+        $url = self::API_URL . '/' . $path;
 
         $this->logRequest($url, $parameters);
-        $request->get($url, $parameters);
+        $callback($request, $url, $parameters);
         $this->logResponse($url, $request->response);
 
         if ($request->isError()) {
@@ -251,71 +279,7 @@ class Client
         return json_decode($request->response, $this->jsonDecodeAssoc);
     }
 
-    public function post($path, array $parameters = [], string $version = '2.0')
-    {
-        $request = $this->getRequest();
-        $url = self::API_URL . '/' . $version . '/' . $path;
-
-        $this->logRequest($url, $parameters);
-        $request->post($url, json_encode($parameters));
-        $this->logResponse($url, $request->response);
-
-        if ($request->isError()) {
-            throw new \Exception(sprintf('Error on HTTP request to %s: %s', $url, $request->response));
-        }
-
-        return json_decode($request->response, $this->jsonDecodeAssoc);
-    }
-
-    public function postWithoutPayload($path, string $version = '2.0')
-    {
-        $request = $this->getRequest();
-        $url = self::API_URL . '/' . $version . '/' . $path;
-
-        $this->logRequest($url);
-        $request->post($url);
-        $this->logResponse($url, $request->response);
-
-        if ($request->isError()) {
-            throw new \Exception(sprintf('Error on HTTP request to %s: %s', $url, $request->response));
-        }
-
-        return json_decode($request->response, $this->jsonDecodeAssoc);
-    }
-
-    public function put($path, array $parameters = [], string $version = '2.0')
-    {
-        $request = $this->getRequest();
-        $url = self::API_URL . '/' . $version . '/' . $path;
-
-        $this->logRequest($url, $parameters);
-        $request->put($url, $parameters);
-        $this->logResponse($url, $request->response);
-
-        if ($request->isError()) {
-            throw new \Exception(sprintf('Error on HTTP request to %s: %s', $url, $request->response));
-        }
-
-        return json_decode($request->response, $this->jsonDecodeAssoc);
-    }
-
-    public function delete($path, array $parameters = [], string $version = '2.0')
-    {
-        $request = $this->getRequest();
-        $url = self::API_URL . '/' . $version . '/' . $path;
-
-        $this->logRequest($url, $parameters);
-        $request->delete($url, $parameters);
-        $this->logResponse($url, $request->response);
-
-        if ($request->isError()) {
-            throw new \Exception(sprintf('Error on HTTP request to %s: %s', $url, $request->response));
-        }
-
-        return json_decode($request->response, $this->jsonDecodeAssoc);
-    }
-
-    public function setjsonDecodeAssoc(bool $jsonDecodeAssoc): self
+    public function setJsonDecodeAssoc(bool $jsonDecodeAssoc): self
     {
         $this->jsonDecodeAssoc = $jsonDecodeAssoc;
         return $this;

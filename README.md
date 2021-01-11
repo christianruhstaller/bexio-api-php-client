@@ -32,8 +32,6 @@ $scope = 'general'; // A whitespace-separated list of scopes (see https://docs.b
 $state = '8OTs2JTDcWDaPqV7o9aHVWqM'; // A random sequence. Should be used as a protection against CSRF-Attacks
 $credentialsPath = 'client_credentials.json'; // Set the path where the credentials file will be stored
 
-$curl = new \Curl\Curl();
-
 $client = new \Bexio\Client(
     [
         'clientId'     => $clientId,
@@ -46,8 +44,8 @@ $client->setRedirectUri($redirectUri);
 if (!isset($_GET['code'])) {
     $redirectTo = \Bexio\Client::OAUTH2_AUTH_URL.'?'.http_build_query(
             [
+                'response_type' => 'code',
                 'client_id'     => $clientId,
-                'client_secret' => $clientSecret,
                 'redirect_uri'  => $redirectUri,
                 'scope'         => $scope,
                 'state'         => $state,

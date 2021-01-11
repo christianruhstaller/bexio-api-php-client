@@ -19,14 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58af1aed-3dac-4b9f-86ea-9a93fe119de5" name="Default Changelist" comment="Added exceptions on error">
-      <change afterPath="$PROJECT_DIR$/.idea/bexio-api-php-client.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="58af1aed-3dac-4b9f-86ea-9a93fe119de5" name="Default Changelist" comment="Pull + merge new commits">
+      <change afterPath="$PROJECT_DIR$/samples/access_token.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bexio/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bexio/Client.php" afterDir="false" />
+    </list>
+    <list id="bf3740dd-eafd-4028-b6ce-783e6c78b642" name="Use new api platform with api version 3" comment="Use new api platform with api version 3&#10;&#10;(cherry picked from commit e28c9691c8af3e5ff758d163b2f568e376dad792)">
+      <changelist_data name="lukasNo1" email="lukas.wegmueller@goldinteractive.ch" date="1603112419000" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bexio/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bexio/Client.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +44,32 @@
     <execution />
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="lukasNo1 &lt;lukas.wegmueller@goldinteractive.ch&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/Bexio/Client.php">
+      <ranges>
+        <range start1="9" end1="14" start2="9" end2="13" changelist="bf3740dd-eafd-4028-b6ce-783e6c78b642" />
+        <range start1="82" end1="88" start2="81" end2="81" changelist="bf3740dd-eafd-4028-b6ce-783e6c78b642" />
+        <range start1="237" end1="238" start2="230" end2="231" changelist="bf3740dd-eafd-4028-b6ce-783e6c78b642" />
+        <range start1="239" end1="251" start2="232" end2="235" changelist="58af1aed-3dac-4b9f-86ea-9a93fe119de5" />
+        <range start1="253" end1="254" start2="237" end2="238" changelist="bf3740dd-eafd-4028-b6ce-783e6c78b642" />
+        <range start1="255" end1="267" start2="239" end2="242" changelist="58af1aed-3dac-4b9f-86ea-9a93fe119de5" />
+        <range start1="269" end1="270" start2="244" end2="245" changelist="bf3740dd-eafd-4028-b6ce-783e6c78b642" />
+        <range start1="271" end1="283" start2="246" end2="249" changelist="58af1aed-3dac-4b9f-86ea-9a93fe119de5" />
+        <range start1="285" end1="286" start2="251" end2="252" changelist="bf3740dd-eafd-4028-b6ce-783e6c78b642" />
+        <range start1="287" end1="299" start2="253" end2="256" changelist="58af1aed-3dac-4b9f-86ea-9a93fe119de5" />
+        <range start1="301" end1="302" start2="258" end2="259" changelist="bf3740dd-eafd-4028-b6ce-783e6c78b642" />
+        <range start1="303" end1="315" start2="260" end2="263" changelist="58af1aed-3dac-4b9f-86ea-9a93fe119de5" />
+        <range start1="317" end1="318" start2="265" end2="282" changelist="58af1aed-3dac-4b9f-86ea-9a93fe119de5" />
+        <range start1="347" end1="348" start2="311" end2="311" changelist="bf3740dd-eafd-4028-b6ce-783e6c78b642" />
+      </ranges>
+    </file>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4">
     <include_path>
@@ -54,6 +79,7 @@
   </component>
   <component name="ProjectId" id="1iJjZYTElurewRdRWixHYjVAXU4" />
   <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -90,7 +116,8 @@
       <workItem from="1601632646992" duration="7221000" />
       <workItem from="1601972586274" duration="907000" />
       <workItem from="1604044157175" duration="1029000" />
-      <workItem from="1606731099948" duration="1124000" />
+      <workItem from="1606731099948" duration="2367000" />
+      <workItem from="1610354987516" duration="2539000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed for new API version(s), added option setjsonDecodeAssoc() for returning arrays instead of stdClass, additional methods for getting languages and taxes">
       <created>1601972789590</created>
@@ -113,7 +140,21 @@
       <option name="project" value="LOCAL" />
       <updated>1604044471177</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added logging functionality">
+      <created>1606732243529</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1606732243529</updated>
+    </task>
+    <task id="LOCAL-00005" summary=".idea">
+      <created>1606732258836</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1606732258836</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -124,7 +165,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="base/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -135,25 +188,20 @@
     <MESSAGE value="Fixed for new API version(s), added option setjsonDecodeAssoc() for returning arrays instead of stdClass, additional methods for getting languages and taxes" />
     <MESSAGE value="Added classes for addtional addresses, contact groups and countries" />
     <MESSAGE value="Added exceptions on error" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added exceptions on error" />
+    <MESSAGE value="Added logging functionality" />
+    <MESSAGE value=".idea" />
+    <MESSAGE value="Pull + merge new commits" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pull + merge new commits" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="158" y="134" width="1662" height="846" key="DiffContextDialog" timestamp="1601905319945">
-      <screen x="58" y="34" width="1862" height="1046" />
-    </state>
-    <state x="158" y="134" width="1662" height="846" key="DiffContextDialog/58.34.1862.1046/1920.0.1920.1080@58.34.1862.1046" timestamp="1601905319945" />
-    <state x="730" y="207" width="507" height="698" key="RollbackChangesDialog" timestamp="1601972691804">
-      <screen x="58" y="34" width="1862" height="1046" />
-    </state>
-    <state x="730" y="207" width="507" height="698" key="RollbackChangesDialog/58.34.1862.1046@58.34.1862.1046" timestamp="1601972691804" />
-    <state x="470" y="192" key="SettingsEditor" timestamp="1601905318747">
-      <screen x="58" y="34" width="1862" height="1046" />
-    </state>
-    <state x="470" y="192" key="SettingsEditor/58.34.1862.1046/1920.0.1920.1080@58.34.1862.1046" timestamp="1601905318747" />
-    <state x="1134" y="558" width="1000" height="654" key="Vcs.Push.Dialog.v2" timestamp="1604044560700">
-      <screen x="69" y="34" width="3771" height="2126" />
-    </state>
-    <state x="584" y="292" width="800" height="527" key="Vcs.Push.Dialog.v2/58.34.1862.1046@58.34.1862.1046" timestamp="1601972808234" />
-    <state x="1134" y="558" width="1000" height="654" key="Vcs.Push.Dialog.v2/69.34.3771.2126@69.34.3771.2126" timestamp="1604044560700" />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/Bexio/Client.php</url>
+          <line>233</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
