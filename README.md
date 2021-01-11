@@ -25,10 +25,10 @@ Get access token
 ```php
 require_once '../vendor/autoload.php';
 
-$clientId = '9999999999999.apps.bexio.com'; // The client id you have received from the bexio support
-$clientSecret = 'W1diwrEvHlgQMPRYdr3t6I1z5sQ='; // The client secret you have received from the bexio support
+$clientId = 'CLIENT_ID'; // The client id of your app
+$clientSecret = 'CLIENT_SECRET'; // The client secret of your app
 $redirectUri = 'http://localhost/bexio-api-php-client.php'; // Set here your Url where this script gets called
-$scope = 'general'; // A whitespace-separated list of scopes (see https://docs.bexio.com/oauth/scopes/).
+$scope = 'openid offline_access'; // A whitespace-separated list of scopes (see https://docs.bexio.com/#section/Authentication/API-Scopes).
 $state = '8OTs2JTDcWDaPqV7o9aHVWqM'; // A random sequence. Should be used as a protection against CSRF-Attacks
 $credentialsPath = 'client_credentials.json'; // Set the path where the credentials file will be stored
 
