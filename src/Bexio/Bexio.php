@@ -23,6 +23,7 @@ class Bexio
 
     /**
      * Get available titles
+     * @deprecated Use Resource\Title::getTitles() instead
      *
      * @return mixed
      */
@@ -48,6 +49,6 @@ class Bexio
 	 */
 	public function getTaxes(array $requestParams = [])
 	{
-		return $this->client->get('taxes', $requestParams, '3.0');
+		return $this->client->get('taxes', $requestParams);
 	}
 }

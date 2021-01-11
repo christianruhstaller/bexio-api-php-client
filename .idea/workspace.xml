@@ -20,8 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="58af1aed-3dac-4b9f-86ea-9a93fe119de5" name="Default Changelist" comment="Pull + merge new commits">
+      <change afterPath="$PROJECT_DIR$/src/Bexio/Resource/Title.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/samples/access_token.php" beforeDir="false" afterPath="$PROJECT_DIR$/samples/access_token.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bexio/Bexio.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bexio/Bexio.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +93,7 @@
       <workItem from="1601972586274" duration="907000" />
       <workItem from="1604044157175" duration="1029000" />
       <workItem from="1606731099948" duration="2367000" />
-      <workItem from="1610354987516" duration="2898000" />
+      <workItem from="1610354987516" duration="3664000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed for new API version(s), added option setjsonDecodeAssoc() for returning arrays instead of stdClass, additional methods for getting languages and taxes">
       <created>1601972789590</created>
@@ -135,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610357691887</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Pull + merge new commits">
+      <created>1610357896947</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1610357896947</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,20 +181,9 @@
     <MESSAGE value="Added exceptions on error" />
     <MESSAGE value="Added logging functionality" />
     <MESSAGE value=".idea" />
-    <MESSAGE value="Pull + merge new commits" />
     <MESSAGE value="Merge changes from base repository" />
     <MESSAGE value="Merge changes from base repository + test script with access token" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge changes from base repository + test script with access token" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/Bexio/Client.php</url>
-          <line>233</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Pull + merge new commits" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pull + merge new commits" />
   </component>
 </project>

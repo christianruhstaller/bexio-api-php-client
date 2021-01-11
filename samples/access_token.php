@@ -24,6 +24,15 @@ $client->onResponse(function (string $requestUrl, string $response) {
     echo sprintf('Response of %s has %d bytes' . PHP_EOL, $requestUrl, strlen($response));
 });
 
+// Fetch languages
 $bexio = new Bexio($client);
-
 var_dump($bexio->getLanguages());
+
+// Create title
+$titleClient = new \Bexio\Resource\Title($client);
+$title = $titleClient->createTitle([ 'name' => 'XXX TEST XXX' ]);
+var_dump($title);
+
+// Delete title
+$response = $titleClient->deleteTitle($title['id']);
+var_dump($response);
