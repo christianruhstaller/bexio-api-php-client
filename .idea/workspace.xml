@@ -20,14 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="58af1aed-3dac-4b9f-86ea-9a93fe119de5" name="Default Changelist" comment="Pull + merge new commits">
-      <change afterPath="$PROJECT_DIR$/samples/access_token.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bexio/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bexio/Client.php" afterDir="false" />
-    </list>
-    <list id="bf3740dd-eafd-4028-b6ce-783e6c78b642" name="Use new api platform with api version 3" comment="Use new api platform with api version 3&#10;&#10;(cherry picked from commit e28c9691c8af3e5ff758d163b2f568e376dad792)">
-      <changelist_data name="lukasNo1" email="lukas.wegmueller@goldinteractive.ch" date="1603112419000" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bexio/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bexio/Client.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/samples/access_token.php" beforeDir="false" afterPath="$PROJECT_DIR$/samples/access_token.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,26 +44,6 @@
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/Bexio/Client.php">
-      <ranges>
-        <range start1="9" end1="14" start2="9" end2="13" changelist="bf3740dd-eafd-4028-b6ce-783e6c78b642" />
-        <range start1="82" end1="88" start2="81" end2="81" changelist="bf3740dd-eafd-4028-b6ce-783e6c78b642" />
-        <range start1="237" end1="238" start2="230" end2="231" changelist="bf3740dd-eafd-4028-b6ce-783e6c78b642" />
-        <range start1="239" end1="251" start2="232" end2="235" changelist="58af1aed-3dac-4b9f-86ea-9a93fe119de5" />
-        <range start1="253" end1="254" start2="237" end2="238" changelist="bf3740dd-eafd-4028-b6ce-783e6c78b642" />
-        <range start1="255" end1="267" start2="239" end2="242" changelist="58af1aed-3dac-4b9f-86ea-9a93fe119de5" />
-        <range start1="269" end1="270" start2="244" end2="245" changelist="bf3740dd-eafd-4028-b6ce-783e6c78b642" />
-        <range start1="271" end1="283" start2="246" end2="249" changelist="58af1aed-3dac-4b9f-86ea-9a93fe119de5" />
-        <range start1="285" end1="286" start2="251" end2="252" changelist="bf3740dd-eafd-4028-b6ce-783e6c78b642" />
-        <range start1="287" end1="299" start2="253" end2="256" changelist="58af1aed-3dac-4b9f-86ea-9a93fe119de5" />
-        <range start1="301" end1="302" start2="258" end2="259" changelist="bf3740dd-eafd-4028-b6ce-783e6c78b642" />
-        <range start1="303" end1="315" start2="260" end2="263" changelist="58af1aed-3dac-4b9f-86ea-9a93fe119de5" />
-        <range start1="317" end1="318" start2="265" end2="282" changelist="58af1aed-3dac-4b9f-86ea-9a93fe119de5" />
-        <range start1="347" end1="348" start2="311" end2="311" changelist="bf3740dd-eafd-4028-b6ce-783e6c78b642" />
-      </ranges>
-    </file>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4">
     <include_path>
@@ -117,7 +91,7 @@
       <workItem from="1601972586274" duration="907000" />
       <workItem from="1604044157175" duration="1029000" />
       <workItem from="1606731099948" duration="2367000" />
-      <workItem from="1610354987516" duration="2539000" />
+      <workItem from="1610354987516" duration="2898000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed for new API version(s), added option setjsonDecodeAssoc() for returning arrays instead of stdClass, additional methods for getting languages and taxes">
       <created>1601972789590</created>
@@ -154,7 +128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606732258836</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Merge changes from base repository + test script with access token">
+      <created>1610357691887</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1610357691887</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -185,13 +166,16 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <confirmRemoveEmptyChangelist value="2" />
     <MESSAGE value="Fixed for new API version(s), added option setjsonDecodeAssoc() for returning arrays instead of stdClass, additional methods for getting languages and taxes" />
     <MESSAGE value="Added classes for addtional addresses, contact groups and countries" />
     <MESSAGE value="Added exceptions on error" />
     <MESSAGE value="Added logging functionality" />
     <MESSAGE value=".idea" />
     <MESSAGE value="Pull + merge new commits" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pull + merge new commits" />
+    <MESSAGE value="Merge changes from base repository" />
+    <MESSAGE value="Merge changes from base repository + test script with access token" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge changes from base repository + test script with access token" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
