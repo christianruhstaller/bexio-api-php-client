@@ -7,7 +7,7 @@ use Curl\Curl;
 
 class Client
 {
-    const API_URL = 'https://api.bexio.com/2.0';
+    const API_URL = 'https://api.bexio.com';
     const OAUTH2_AUTH_URL = 'https://idp.bexio.com/authorize';
     const OAUTH2_TOKEN_URI = 'https://idp.bexio.com/token';
     const OAUTH2_REFRESH_TOKEN_URI = 'https://idp.bexio.com/token';
@@ -26,6 +26,11 @@ class Client
      * @var
      */
     private $auth;
+
+    private $jsonDecodeAssoc = false;
+
+    private $requestCallbacks = [];
+    private $responseCallbacks = [];
 
     /**
      * Client constructor.
@@ -130,6 +135,8 @@ class Client
         if (isset($this->accessToken['refresh_token'])) {
             return $this->accessToken['refresh_token'];
         }
+
+        return null;
     }
 
     public function fetchAuthCode()
@@ -221,43 +228,84 @@ class Client
         return $curl;
     }
 
-    public function get($path, array $parameters = [])
+    public function get($path, array $parameters = [], string $version = '2.0')
     {
-        $request = $this->getRequest();
-        $request->get(self::API_URL.'/'.$path, $parameters);
-
-        return json_decode($request->response);
+        return $this->call($path, $version, $parameters, function ($request, $url, $parameters) {
+            $request->get($url, $parameters);
+        });
     }
 
-    public function post($path, array $parameters = [])
+    public function post($path, array $parameters = [], string $version = '2.0')
     {
-        $request = $this->getRequest();
-        $request->post(self::API_URL.'/'.$path, json_encode($parameters));
-
-        return json_decode($request->response);
+        return $this->call($path, $version, $parameters, function ($request, $url, $parameters) {
+            $request->post($url, json_encode($parameters));
+        });
     }
 
-    public function postWithoutPayload($path)
+    public function postWithoutPayload($path, string $version = '2.0')
     {
-        $request = $this->getRequest();
-        $request->post(self::API_URL.'/'.$path);
-
-        return json_decode($request->response);
+        return $this->call($path, $version, [], function ($request, $url, $parameters) {
+            $request->post($url);
+        });
     }
 
-    public function put($path, array $parameters = [])
+    public function put($path, array $parameters = [], string $version = '2.0')
     {
-        $request = $this->getRequest();
-        $request->put(self::API_URL.'/'.$path, $parameters);
-
-        return json_decode($request->response);
+        return $this->call($path, $version, $parameters, function ($request, $url, $parameters) {
+            $request->put($url, $parameters);
+        });
     }
 
-    public function delete($path, array $parameters = [])
+    public function delete($path, array $parameters = [], string $version = '2.0')
+    {
+        return $this->call($path, $version, $parameters, function ($request, $url, $parameters) {
+            $request->delete($url, $parameters);
+        });
+    }
+
+    private function call(string $path, string $version, array $parameters = [], \Closure $callback)
     {
         $request = $this->getRequest();
-        $request->delete(self::API_URL.'/'.$path, $parameters);
+        $url = sprintf("%s/%s/%s", self::API_URL, $version, $path);
 
-        return json_decode($request->response);
+        $this->logRequest($url, $parameters);
+        $callback($request, $url, $parameters);
+        $this->logResponse($url, $request->response);
+
+        if ($request->isError()) {
+            throw new \Exception(sprintf('Error on HTTP request to %s: %s', $url, $request->response));
+        }
+
+        return json_decode($request->response, $this->jsonDecodeAssoc);
+    }
+
+    public function setJsonDecodeAssoc(bool $jsonDecodeAssoc): self
+    {
+        $this->jsonDecodeAssoc = $jsonDecodeAssoc;
+        return $this;
+    }
+
+    public function onRequest(\Closure $callback)
+    {
+        $this->requestCallbacks[] = $callback;
+    }
+
+    public function onResponse(\Closure $callback)
+    {
+        $this->responseCallbacks[] = $callback;
+    }
+
+    private function logRequest(string $requestUrl, array $parameters = [])
+    {
+        foreach ($this->requestCallbacks as $callback) {
+            $callback($requestUrl, $parameters);
+        }
+    }
+
+    private function logResponse(string $requestUrl, string $response)
+    {
+        foreach ($this->responseCallbacks as $callback) {
+            $callback($requestUrl, $response);
+        }
     }
 }
