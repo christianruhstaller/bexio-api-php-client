@@ -55,6 +55,7 @@ class Item extends Bexio {
     {
         return $this->client->post('article/' . $id, $params);
     }
+    
     /**
      * Get specific contact
      *

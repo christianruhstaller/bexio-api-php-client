@@ -8,9 +8,9 @@ use Curl\Curl;
 class Client
 {
     const API_URL = 'https://api.bexio.com';
-    const OAUTH2_AUTH_URL = 'https://idp.bexio.com/authorize';
-    const OAUTH2_TOKEN_URI = 'https://idp.bexio.com/token';
-    const OAUTH2_REFRESH_TOKEN_URI = 'https://idp.bexio.com/token';
+    const OAUTH2_AUTH_URL = 'https://auth.bexio.com/realms/bexio/protocol/openid-connect/auth';
+    const OAUTH2_TOKEN_URI = 'https://auth.bexio.com/realms/bexio/protocol/openid-connect/token';
+    const OAUTH2_REFRESH_TOKEN_URI = 'https://auth.bexio.com/realms/bexio/protocol/openid-connect/token';
 
     /**
      * @var array $config
